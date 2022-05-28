@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Данные о валютах</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style>
+    .form-style{
+      font: 95% Arial, Helvetica, sans-serif;
+      max-width: 600px;
+      margin: 10px auto;
+      padding: 16px;
+      background: #F7F7F7;
+    }
+    .form-style h1{
+      background: #43D1AF;
+      padding: 20px 0;
+      font-size: 140%;
+      font-weight: 300;
+      text-align: center;
+      color: #fff;
+      margin: -16px -16px 16px -16px;
+    }
+    table {
+      width: 100%;
+      margin-bottom: 20px;
+      border: 5px solid #fff;
+      border-top: 5px solid #fff;
+      border-bottom: 3px solid #fff;
+      border-collapse: collapse;
+      outline: 3px solid #ffd300;
+      font-size: 15px;
+      background: #fff!important;
+    }
+    table th {
+      font-weight: bold;
+      padding: 7px;
+      background: #ffd300;
+      border: none;
+      text-align: left;
+      font-size: 15px;
+      border-top: 3px solid #fff;
+      border-bottom: 3px solid #ffd300;
+    }
+    table td {
+      padding: 7px;
+      border: none;
+      border-top: 3px solid #fff;
+      border-bottom: 3px solid #fff;
+      font-size: 15px;
+    }
+    table tbody tr:nth-child(even){
+      background: #f8f8f8!important;
+    }
+    button {
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      width: 100%;
+      padding: 3%;
+      background: #43D1AF;
+      border-bottom: 2px solid #30C29E;
+      border-top-style: none;
+      border-right-style: none;
+      border-left-style: none;
+      color: #fff;
+    }
+    button:hover{
+      background: #2EBC99;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-style">
+  <table>
+    <thead>
+      <tr>
+        <th>Код валюты</th>
+        <th>Номинал</th>
+        <th>Курс к рублю</th>
+        <th>Дата</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="record : ${records}">
+        <td th:text="${record.getCurrencyName()}"></td>
+        <td th:text="${record.getNominal()}"></td>
+        <td th:text="${record.getRateToRub()}"></td>
+        <td th:text="${record.getDate()}"></td>
+      </tr>
+    </tbody>
+  </table>
+  <form method="GET" th:action="@{/}">
+    <button type="submit" name="submit" value="value" class="link-button">Вернуться</button>
+  </form>
+</div>
+</body>
+</html>

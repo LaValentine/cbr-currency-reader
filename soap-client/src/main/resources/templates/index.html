@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Данные о валютах</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        .form-style{
+            font: 95% Arial, Helvetica, sans-serif;
+            max-width: 400px;
+            margin: 10px auto;
+            padding: 16px;
+            background: #F7F7F7;
+        }
+        .form-style h1{
+            background: #43D1AF;
+            padding: 20px 0;
+            font-size: 140%;
+            font-weight: 300;
+            text-align: center;
+            color: #fff;
+            margin: -16px -16px 16px -16px;
+        }
+        .form-style input,.form-style select
+        {
+            -webkit-transition: all 0.30s ease-in-out;
+            -moz-transition: all 0.30s ease-in-out;
+            -ms-transition: all 0.30s ease-in-out;
+            -o-transition: all 0.30s ease-in-out;
+            outline: none;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            width: 100%;
+            background: #fff;
+            margin-bottom: 4%;
+            border: 1px solid #ccc;
+            padding: 3%;
+            color: #555;
+            font: 95% Arial, Helvetica, sans-serif;
+        }
+        .form-style input:focus,
+        .form-style select
+        {
+            box-shadow: 0 0 5px #43D1AF;
+            padding: 3%;
+            border: 1px solid #43D1AF;
+        }
+
+        .form-style button {
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            width: 100%;
+            padding: 3%;
+            background: #43D1AF;
+            border-bottom: 2px solid #30C29E;
+            border-top-style: none;
+            border-right-style: none;
+            border-left-style: none;
+            color: #fff;
+        }
+        .form-style button:hover{
+            background: #2EBC99;
+        }
+    </style>
+</head>
+<body>
+<div class="form-style">
+    <h1>Введите данные </h1>
+    <form method="POST" th:action="@{/get-record}">
+        <label>Код валюты</label>
+        <select name="currency">
+            <option value="USD">USD</option>
+            <option selected value="EUR">EUR</option>
+            <option value="JPY">JPY</option>
+            <option value="SEK">SEK</option>
+            <option value="DKK">DKK</option>
+            <option value="BYN">BYN</option>
+            <option value="DKK">AMD</option>
+            <option value="BYN">AUD</option>
+        </select>
+        <label>Дата</label>
+        <input type="date" name="date" required />
+
+        <button type="submit" name="submit" value="value" class="link-button">Получить данные</button>
+    </form>
+    <form method="POST" th:action="@{/get-all-records}">
+        <button type="submit" name="submit" value="value" class="link-button">Получить все записи из БД</button>
+    </form>
+</div>
+</body>
+</html>

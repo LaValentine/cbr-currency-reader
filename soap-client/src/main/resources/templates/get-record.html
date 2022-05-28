@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Данные о валютах</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style>
+    .form-style{
+      font: 95% Arial, Helvetica, sans-serif;
+      max-width: 400px;
+      margin: 10px auto;
+      padding: 16px;
+      background: #F7F7F7;
+    }
+    .form-style h1{
+      background: #43D1AF;
+      padding: 20px 0;
+      font-size: 140%;
+      font-weight: 300;
+      text-align: center;
+      color: #fff;
+      margin: -16px -16px 16px -16px;
+    }
+    .form-style button {
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      width: 100%;
+      padding: 3%;
+      background: #43D1AF;
+      border-bottom: 2px solid #30C29E;
+      border-top-style: none;
+      border-right-style: none;
+      border-left-style: none;
+      color: #fff;
+    }
+    .form-style button:hover{
+      background: #2EBC99;
+    }
+  </style>
+</head>
+<body>
+<div class="form-style">
+  <h1>Данные</h1>
+  <p th:text="'Валюта: ' + ${currency.getName()}" />
+  <p th:text="'Код валюты: ' + ${currency.getCode()}" />
+  <p th:text="'Номинал: ' + ${currency.getNominal()}" />
+  <p th:text="'Курс к рубл: ' + ${currency.getRate()}" />
+  <p th:text="'Дата: ' + ${currency.getDate()}" />
+
+  <form method="GET" th:action="@{/}">
+    <button type="submit" name="submit" value="value" class="link-button">Вернуться</button>
+  </form>
+</div>
+</body>
+</html>
