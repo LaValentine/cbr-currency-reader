@@ -19,23 +19,24 @@
 - Module 'soap-server' 
   ```
     SPRING_DATASOURCE_URL=jdbc:sqlserver://localhost
-    SPRING_DATASOURCE_USERNAME=cbrCurrencyReader
-    SPRING_DATASOURCE_PASSWORD=cbrCurrencyReader111
+    SPRING_DATASOURCE_USERNAME=YOUR_USERNAME
+    SPRING_DATASOURCE_PASSWORD=YOUR_PASSORD
     SPRING_JPA_HIBERNATE_DDL_AUTO=create
   ```
+#### Create YOUR_USERNAME and YOUR_PASSWORD
 ### Step #2
 #### Configure Data Base
 ```
 CREATE DATABASE cbrCurrencyReader
 ```
 ```
-CREATE LOGIN cbrCurrencyReader2   
-WITH PASSWORD = 'cbrCurrencyReader111',
+CREATE LOGIN YOUR_USERNAME   
+WITH PASSWORD = YOUR_PASSWORD,
 DEFAULT_DATABASE = cbrCurrencyReader
 ```
 ```
 Use cbrCurrencyReader
-CREATE USER cbrCurrencyReader FOR LOGIN cbrCurrencyReader
+CREATE USER YOUR_USERNAME FOR LOGIN YOUR_USERNAME
 ```
 ### Step #3
 #### Start up soap-server module
