@@ -1,0 +1,30 @@
+version: '3.1'
+services:
+  client:
+    container_name: client
+    image: soap-client
+    build: soap-client
+    ports:
+      - "8081:8081"
+    environment:
+      - SERVER_URL=http://server:8080/ws
+  server:
+    container_name: server
+    image: soap-server
+    build: soap-server
+    ports:
+      - "8080:8080"
+    hostname: server
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:sqlserver://db
+      - SPRING_DATASOURCE_USERNAME=SA
+      - SPRING_DATASOURCE_PASSWORD=SaPassword111
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create
+  db:
+    container_name: db
+    ports:
+      - "1433:1433"
+    build:
+      ./
